@@ -1,9 +1,8 @@
-import {useEffect,useState} from "react";
+import {useState} from "react";
 import {ImagePlus,X,ArrowLeft,CheckCircle2} from "lucide-react";
 import {Button} from "../components/ui/button";import {Card,CardContent} from "../components/ui/card";import {Input} from "../components/ui/input";import {Label} from "../components/ui/label";import {Textarea} from "../components/ui/textarea";
 type Photo={file:File;preview:string};
 export default function ProfessionalSignupPage(){const[form,setForm]=useState({name:"",title:"",city:"",phone:"",email:"",registration:"",linkedin:"",headline:"",summary:"",skills:""});const[avatar,setAvatar]=useState<Photo|null>(null);const[portfolio,setPortfolio]=useState<Photo[]>([]);const[error,setError]=useState("");const[loading,setLoading]=useState(false);const[progress,setProgress]=useState("");
-useEffect(()=>()=>{if(avatar)URL.revokeObjectURL(avatar.preview);portfolio.forEach(x=>URL.revokeObjectURL(x.preview))},[avatar,portfolio]);
 const set=(key:string,value:string)=>setForm(x=>({...x,[key]:value}));
 const pickAvatar=(file?:File)=>{if(file&&file.type.startsWith("image/")){if(avatar)URL.revokeObjectURL(avatar.preview);setAvatar({file,preview:URL.createObjectURL(file)})}};
 const pickPortfolio=(files:FileList|null)=>{if(!files)return;const remaining=6-portfolio.length;const next=Array.from(files).filter(f=>f.type.startsWith("image/")).slice(0,remaining).map(file=>({file,preview:URL.createObjectURL(file)}));setPortfolio(x=>[...x,...next])};
