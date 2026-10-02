@@ -1,5 +1,6 @@
 {
   "rewrites": [
+    { "source": "/criar-perfil", "destination": "/index.html" },
     { "source": "/meu-perfil", "destination": "/index.html" },
     { "source": "/perfil", "destination": "/index.html" },
     { "source": "/perfil/editar", "destination": "/index.html" },
