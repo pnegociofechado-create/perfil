@@ -1,0 +1,2 @@
+import type { InputHTMLAttributes } from "react";
+export function Input({className="",...props}:InputHTMLAttributes<HTMLInputElement>){return <input className={"h-10 w-full rounded-md border border-[#D7D0C4] bg-transparent px-3 outline-none focus:ring-2 focus:ring-[#F15A24] "+className} {...props}/>;}
