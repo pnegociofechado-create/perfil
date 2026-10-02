@@ -20,7 +20,7 @@ export default async function handler(req:VercelRequest,res:VercelResponse){try{
  const finalProjects=projects.length?projects:legacy.map((url:string,i:number)=>({title:`Projeto ${i+1}`,location:city,role:"Trabalho apresentado no portfólio",images:[url]}));
  const skills=Array.isArray(body.skills)?body.skills.map((x:unknown)=>clean(x,80)).filter(Boolean).slice(0,20):clean(body.skills,1000).split(",").map(x=>x.trim()).filter(Boolean).slice(0,20);
  const profile={slug,name,initials:name.split(/\s+/).slice(0,2).map((x:string)=>x[0]).join("").toUpperCase(),title,location:city,registration:clean(body.registration,120)||"Perfil profissional",headline:clean(body.headline,180)||`${title} · Profissional no Negócio Fechado`,summary:clean(body.summary,2000),phone,email,linkedin,avatarUrl:typeof body.avatarUrl==="string"&&body.avatarUrl.startsWith("https://")?body.avatarUrl:"",skills,highlights:[],projects:finalProjects,experience:[]};
- const response=await supabase("professional_leads",{method:"POST",headers:{Prefer:"return=representation"},body:JSON.stringify({name,title,city,phone,email,registration:profile.registration,linkedin,slug,profile_json:profile,status:"novo"})});
+ const response=await supabase("professional_leads",{method:"POST",headers:{Prefer:"return=representation"},body:JSON.stringify({name,title,city,phone,email,registration:profile.registration,linkedin,slug,profile_json:profile,status:"aguardando_confirmacao"})});
  if(!response.ok)return json(res,response.status===409?409:500,{error:response.status===409?"Este cadastro entrou em conflito. Tente novamente.":"Não foi possível salvar o cadastro."});
  return json(res,201,{slug,profile});
  }
