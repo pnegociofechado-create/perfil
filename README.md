@@ -2,6 +2,10 @@
 
 Módulo independente de Perfil profissional extraído do projeto Obras.
 
+## Publicação
+
+Publicado via GitHub Pages em `/perfil/`.
+
 ## Rotas
 - `#/perfil` — perfil público principal
 - `#/perfil/editar` — edição local do perfil
