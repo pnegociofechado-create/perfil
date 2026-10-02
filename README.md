@@ -42,3 +42,5 @@ npm run dev
 ## Meta do MVP
 
 A primeira versão foi desenhada para validar a captação dos primeiros 10 profissionais antes de adicionar autenticação completa, upload de fotos, pagamentos ou automações comerciais.
+
+<!-- Vercel Git integration smoke test -->
