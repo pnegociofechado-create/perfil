@@ -44,3 +44,18 @@ npm run dev
 A primeira versão foi desenhada para validar a captação dos primeiros 10 profissionais antes de adicionar autenticação completa, upload de fotos, pagamentos ou automações comerciais.
 
 <!-- Vercel Git integration smoke test -->
+
+
+## Edição segura do perfil
+
+A área `/perfil/editar` usa Supabase Auth com link mágico por e-mail. Para habilitar em produção, configure na Vercel:
+
+- `VITE_SUPABASE_URL` = URL pública do projeto Supabase
+- `VITE_SUPABASE_ANON_KEY` = chave pública anon/publishable do Supabase
+- `SUPABASE_ANON_KEY` = a mesma chave pública, usada pela API para validar sessões
+- mantenha `SUPABASE_SERVICE_ROLE_KEY` somente no servidor.
+
+No Supabase Authentication → URL Configuration, adicione:
+`https://onegociofechado.vercel.app/perfil/editar`
+
+O usuário recebe um link de acesso por e-mail, e somente uma sessão autenticada cujo e-mail corresponde ao cadastro consegue editar o perfil. O e-mail do perfil não é alterável pela área de edição nesta versão.
