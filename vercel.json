@@ -1,5 +1,9 @@
 {
   "rewrites": [
-    { "source": "/(?!api(?:/|$))(.*)", "destination": "/index.html" }
+    { "source": "/meu-perfil", "destination": "/index.html" },
+    { "source": "/perfil", "destination": "/index.html" },
+    { "source": "/perfil/editar", "destination": "/index.html" },
+    { "source": "/perfil/:slug", "destination": "/index.html" },
+    { "source": "/perfil/:slug/kit", "destination": "/index.html" }
   ]
 }
