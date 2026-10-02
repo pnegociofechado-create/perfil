@@ -1,10 +1,9 @@
 {
   "rewrites": [
     { "source": "/criar-perfil", "destination": "/index.html" },
+    { "source": "/admin/leads", "destination": "/index.html" },
     { "source": "/meu-perfil", "destination": "/index.html" },
     { "source": "/perfil", "destination": "/index.html" },
-    { "source": "/perfil/editar", "destination": "/index.html" },
-    { "source": "/perfil/:slug", "destination": "/index.html" },
-    { "source": "/perfil/:slug/kit", "destination": "/index.html" }
+    { "source": "/perfil/:path*", "destination": "/index.html" }
   ]
 }
