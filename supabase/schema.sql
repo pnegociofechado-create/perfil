@@ -17,3 +17,7 @@ create table if not exists public.professional_leads (
 create index if not exists professional_leads_created_at_idx on public.professional_leads (created_at desc);
 create index if not exists professional_leads_slug_idx on public.professional_leads (slug);
 alter table public.professional_leads enable row level security;
+
+-- Migration for an existing professional_leads table
+alter table public.professional_leads add column if not exists password_hash text;
+alter table public.professional_leads add column if not exists password_salt text;
