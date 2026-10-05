@@ -10,7 +10,9 @@ create table if not exists public.professional_leads (
   linkedin text,
   slug text not null unique,
   profile_json jsonb not null,
-  status text not null default 'novo'
+  status text not null default 'novo',
+  password_hash text,
+  password_salt text
 );
 create index if not exists professional_leads_created_at_idx on public.professional_leads (created_at desc);
 create index if not exists professional_leads_slug_idx on public.professional_leads (slug);
